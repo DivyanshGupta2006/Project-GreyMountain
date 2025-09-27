@@ -1,0 +1,8 @@
+data/
+models/
+reports/
+.venv/
+__pycache__/
+*.pyc
+.idea/
+.env
