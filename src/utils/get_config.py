@@ -1,0 +1,8 @@
+import yaml
+from src.utils import get_absolute_path
+
+def read_yaml() -> dict:
+    config_path = get_absolute_path.get_project_root() / "config.yaml"
+    with open(config_path, 'r') as file:
+        config = yaml.safe_load(file)
+    return config
