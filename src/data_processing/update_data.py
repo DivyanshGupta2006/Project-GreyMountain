@@ -1,28 +1,21 @@
-import os
-import yfinance as yf
-import time
-from datetime import date
-from dateutil.relativedelta import relativedelta
-import warnings
-warnings.filterwarnings("ignore")
-from src.utils import get_config, get_absolute_path
+from src.data_processing import download_data, process_data
+from src.utils import get_config, get_absolute_path, check_dir
 
-config = get_config.read_yaml()
-DATA_DIR = get_absolute_path.absolute(config['paths']['raw_data_directory'])
+def update_equity_data():
+    print(f"Updating equity data...")
+    config = get_config.read_yaml()
+    raw_data_dir = get_absolute_path.absolute(config['paths']['raw_data_directory'])
+    processed_data_dir = get_absolute_path.absolute(config['paths']['processed_data_directory'])
+    period = config['data']['max_backtesting_time']
 
-def update_equity_data(ticker):
-    if not os.path.exists(DATA_DIR):
-        print(f"Creating directory: {DATA_DIR}")
-        os.makedirs(DATA_DIR)
-    else:
-        print(f"Directory already exists: {DATA_DIR}")
-    start = (date.today() - relativedelta(years=config['data']['max_backtesting_time'])).strftime('%Y-%m-%d')
-    end = (date.today()).strftime('%Y-%m-%d')
-    print(f"Updating: {ticker} !")
-    try:
-        df = yf.download(ticker, start=start, end=end)
-        df.to_csv(f'{DATA_DIR}/{ticker}.csv')
-        print(f"Successfully updated: {ticker} !")
-    except Exception as e:
-        print(f"Failed to update {ticker}: {e} !")
-    time.sleep(1)
+    check_dir.check(raw_data_dir)
+    check_dir.check(processed_data_dir)
+
+    tickers = config['data']['tickers_nifty_200']
+
+    for ticker in tickers:
+        # download_data.download_equity_data(ticker, raw_data_dir, period)
+        process_data.process_equity_data(ticker, processed_data_dir)
+
+
+    print(f"Finished updating equity data.")

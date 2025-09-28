@@ -1,6 +1,6 @@
 paths:
-  raw_data_directory: "data\\raw_data\\"
-  processed_data_directory: "data\\processed_data\\"
+  raw_data_directory: "data\\raw_data\\equity\\"
+  processed_data_directory: "data\\processed_data\\equity\\"
   model_data_directory: "models\\"
   report_data_directory: "reports\\"
 data:
