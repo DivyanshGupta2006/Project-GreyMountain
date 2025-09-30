@@ -11,10 +11,10 @@ def update_equity_data():
     check_dir.check(raw_data_dir)
     check_dir.check(processed_data_dir)
 
-    tickers = config['data']['tickers_nifty_200']
+    tickers = config['data']['tickers']
 
     for ticker in tickers:
-        # download_data.download_equity_data(ticker, raw_data_dir, period)
+        download_data.download_equity_data(ticker, raw_data_dir, period)
         process_data.process_equity_data(ticker, processed_data_dir)
 
 
