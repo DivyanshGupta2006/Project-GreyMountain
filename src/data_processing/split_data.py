@@ -2,7 +2,7 @@ from src.utils import get_config, read_files, check_dir, get_absolute_path
 
 config = get_config.read_yaml()
 
-def split():
+def split_equity_data():
 
     tickers = config['data'][config['data']['selected_tickers']]
     print("Splitting the data...")
