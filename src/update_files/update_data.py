@@ -4,9 +4,9 @@ def update_equity_data():
     a = input('Download Data? (y/n): ')
     if a.lower() == 'y':
         download_data.download_equity_data()
-    split_data.split()
-    # link_data.link('training-val')
-    # link_data.link('val-test')
+    split_data.split_equity_data()
+    link_data.link('training-val')
+    link_data.link('val-test')
     # feature_engineer.create_features(type='training')
     # feature_engineer.create_features(type='val')
     # feature_engineer.create_features(type='test')
