@@ -365,7 +365,4 @@ data:
     - YESBANK.NS
     - ZYDUSLIFE.NS
 
-  tickers:
-    - ABB.NS
-
   max_backtesting_time: 10
