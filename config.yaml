@@ -23,14 +23,14 @@ paths:
 # data related variables
 data:
   universe: "NIFTY - "
+  selected_tickers: "tickers_nifty_50"
   timeframe: '1d'
   backdate: 200
   max_backtesting_time: 10
-  start_date: '2020-05-28' # taking 200 extra candles to account for null values encountered during feature engineering
-  begin_train_date: '2020-07-01'
-  begin_val_date: '2024-07-01'
+  begin_train_date: '2015-07-01'
+  begin_val_date: '2024-01-01'
   begin_test_date: '2025-01-01'
-  train_val_split: '2024-06-30'
+  train_val_split: '2023-12-31'
   val_test_split: '2024-12-31'
   end_date: '2025-06-30'
 
