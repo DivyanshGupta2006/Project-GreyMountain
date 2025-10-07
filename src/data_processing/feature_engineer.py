@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import talib as ta
 from src.utils import get_config, get_absolute_path, read_files, check_dir
@@ -17,15 +18,16 @@ def create_features(type='training'):
             data = read_files.read_raw_val_data(ticker)
         elif type == 'test':
             data = read_files.read_raw_test_data(ticker)
-        data['rsi'] = ta.RSI(data['Close'], timeperiod=14)
-        data['sma-50'] = ta.SMA(data['Close'], timeperiod=50)
-        data['sma-100'] = ta.SMA(data['Close'], timeperiod=100)
-        data['sma-200'] = ta.SMA(data['Close'], timeperiod=200)
-        data['ema-50'] = ta.EMA(data['Close'], timeperiod=50)
-        data['ema-100'] = ta.EMA(data['Close'], timeperiod=100)
-        data['ema-200'] = ta.EMA(data['Close'], timeperiod=200)
-        data['atr'] = ta.ATR(data['High'], data['Low'], data['Close'], timeperiod=14)
-        data['adx'] = ta.ADX(data['High'], data['Low'], data['Close'], timeperiod=14)
+        data['returns'] = np.log(data.close.div(data.close.shift(1)))
+        data['rsi'] = ta.RSI(data['close'], timeperiod=14)
+        data['sma-50'] = ta.SMA(data['close'], timeperiod=50)
+        data['sma-100'] = ta.SMA(data['close'], timeperiod=100)
+        data['sma-200'] = ta.SMA(data['close'], timeperiod=200)
+        data['ema-50'] = ta.EMA(data['close'], timeperiod=50)
+        data['ema-100'] = ta.EMA(data['close'], timeperiod=100)
+        data['ema-200'] = ta.EMA(data['close'], timeperiod=200)
+        data['atr'] = ta.ATR(data['high'], data['low'], data['close'], timeperiod=14)
+        data['adx'] = ta.ADX(data['high'], data['low'], data['close'], timeperiod=14)
         ticker = ticker.split('.')[0]
         path = f'{ticker}.csv'
         data.to_csv(data_dir / path)
