@@ -29,10 +29,11 @@ def download_equity_data():
                 data.rename(columns={datafield: datafield[0]}, inplace=True)
             data['Returns'] = np.log(data.Close.div(data.Close.shift(1)))
             data.dropna(inplace=True)
-            data['B&H Returns'] = data['Returns'].cumsum().apply(np.exp)
-            data['B&H Max'] = data['B&H Returns'].cummax()
-            data['B&H Drawdown'] = data['B&H Max'] - data['B&H Returns']
-            data['B&H Drawdown %'] = (data['B&H Drawdown'] / data['B&H Max']) * 100
+            # calculate these in backtester
+            # data['B&H Returns'] = data['Returns'].cumsum().apply(np.exp)
+            # data['B&H Max'] = data['B&H Returns'].cummax()
+            # data['B&H Drawdown'] = data['B&H Max'] - data['B&H Returns']
+            # data['B&H Drawdown %'] = (data['B&H Drawdown'] / data['B&H Max']) * 100
             path = f'{ticker}.csv'
             data.to_csv(data_dir / path)
             print(f"Successfully downloaded: {ticker} !")
