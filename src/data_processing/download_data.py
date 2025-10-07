@@ -26,7 +26,7 @@ def download_equity_data():
             data = yf.download(f'{ticker}.NS', start=start, end=end, interval=config['data']['timeframe'])
             data.columns = data.columns.to_flat_index()
             for datafield in data.columns:
-                data.rename(columns={datafield: datafield[0]}, inplace=True)
+                data.rename(columns={datafield: datafield[0].lower()}, inplace=True)
             data['Returns'] = np.log(data.Close.div(data.Close.shift(1)))
             data.dropna(inplace=True)
             # calculate these in backtester
