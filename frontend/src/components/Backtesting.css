@@ -1,0 +1,246 @@
+.backtesting {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.backtest-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.backtest-form-section, .backtest-results-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.backtest-form-section h2, .backtest-results-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+}
+
+.backtest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.btn-run {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 1rem;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.result-metric {
+  background: var(--bg-tertiary);
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-metric .metric-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-metric .metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.chart-container {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.trades-summary h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.trades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.trade-stat {
+  background: var(--bg-tertiary);
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stat-value.positive {
+  color: var(--accent-green);
+}
+
+.stat-value.negative {
+  color: var(--accent-red);
+}
+
+.previous-backtests {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.previous-backtests h2 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.backtests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.backtest-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.backtest-item:hover {
+  border-color: var(--accent-blue);
+  transform: translateX(2px);
+}
+
+.backtest-info h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.backtest-date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.backtest-metrics {
+  display: flex;
+  gap: 24px;
+}
+
+.backtest-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.backtest-metric .label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.backtest-metric .value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.backtest-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 1200px) {
+  .backtest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-row, .trades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .backtest-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .backtest-metrics, .backtest-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

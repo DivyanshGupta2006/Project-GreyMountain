@@ -1,0 +1,303 @@
+.dashboard {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.metric-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.metric-icon {
+  color: var(--accent-blue);
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.metric-change {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+}
+
+.metric-change.positive {
+  color: var(--accent-green);
+}
+
+.metric-change.negative {
+  color: var(--accent-red);
+}
+
+.metric-change.neutral {
+  color: var(--text-secondary);
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.chart-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.chart-card.large {
+  grid-column: 1;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.chart-header h3 {
+  font-size: 1.125rem;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-tab {
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.btn-tab:hover {
+  background: var(--bg-tertiary);
+  transform: none;
+}
+
+.btn-tab.active {
+  background: var(--accent-blue);
+  color: white;
+  border-color: var(--accent-blue);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.info-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.performers-list, .signals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.performer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.performer-item:hover {
+  transform: translateX(4px);
+}
+
+.performer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.performer-ticker {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.performer-value {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.performer-return {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.performer-return.positive {
+  color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.performer-return.negative {
+  color: var(--accent-red);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.signal-item {
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-blue);
+}
+
+.signal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.signal-ticker {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.signal-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.signal-badge.buy {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--accent-green);
+}
+
+.signal-badge.sell {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--accent-red);
+}
+
+.signal-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.signal-price {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.signal-confidence {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.signal-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card.large {
+    grid-column: auto;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions button {
+    flex: 1;
+  }
+}
